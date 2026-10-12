@@ -1,11 +1,24 @@
-CSOPESY - MO4 Desktop OS Emulator
-=================================
+CSOPESY MO4 - Desktop-Style OS Mock-up
+======================================
+(CSOPESY Desktop OS Emulator, v1.0)
 Section S04 - Group 10
 
 Group members:
-  TODO: Lastname, Firstname
-  TODO: Lastname, Firstname
-  TODO: Lastname, Firstname
+  David, Justin Ice
+  Limpin, Kryster Knowell
+  Singson, Keith Railey
+
+Version date: October 12, 2026
+
+Repository (SOURCE package + this README):
+  https://github.com/snowyter/CSOPESY-MO4-Desktop-OS-Emulator
+
+What this is (MO4 general instructions):
+  An OS emulator needs a command interpreter and a display output.
+  MO4 is the desktop-style display-output side: a Windows-like desktop
+  (BIOS + loading boot screens, wallpaper, clock, taskbar, draggable
+  and resizable windows) with three apps - File Explorer, Notepad and
+  Task Manager. Input is via mouse and keyboard through the GUI.
 
 Entry point:
   src/main.cpp  (contains the main() function)
@@ -19,7 +32,8 @@ Requirements:
   - Nothing else: Dear ImGui, GLFW and stb_image are included in external/.
 
 How to run:
-  1. Open THIS folder (the one containing src/ and .vscode/) in VS Code.
+  1. Open THIS folder (the one containing src/ and .vscode/) in VS Code
+     (File > Open Folder), or clone the repository above and open it.
   2. Press F5. The first build takes ~30 seconds (it compiles Dear ImGui);
      later builds only recompile the files you changed.
   3. Shut the OS down with the red PWR button in the taskbar (then confirm).

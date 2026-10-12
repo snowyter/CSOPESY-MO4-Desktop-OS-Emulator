@@ -1,0 +1,43 @@
+# CSOPESY MO4 - Desktop OS Emulator settings
+# Edit this file instead of the code (no recompiling needed), then run again.
+# Lines starting with # are comments. Format: key=value
+
+# ---- Window ----
+# Window size in pixels (640-3840 x 480-2160). Keep 1280x720 for the 720p video.
+window_width=1280
+window_height=720
+window_title=CSOPESY Desktop OS Emulator
+# true = lock to the monitor's refresh rate (smooth, no tearing)
+vsync=true
+
+# ---- Font ----
+font_path=assets/fonts/JetBrainsMono-Regular.ttf
+# Text size in pixels (10-40)
+font_size=16
+
+# ---- Wallpaper ----
+# image    = load wallpaper_path (falls back to the gradient if it can't be loaded)
+# gradient = draw a colour gradient + dot pattern in code
+wallpaper_mode=image
+wallpaper_path=assets/wallpaper.jpg
+# cover = fill the window, cropping edges | fit = whole image, black bars | stretch
+wallpaper_fit=cover
+# Gradient colours (#RRGGBB), top and bottom
+gradient_top=#102A54
+gradient_bottom=#3A78A8
+
+# ---- Clock ----
+# false = 02:38:15 PM, true = 14:38:15
+clock_24h=false
+
+# ---- Boot / shutdown ----
+# true = show the BIOS screen and the loading screen before the desktop
+boot_enabled=true
+# Durations in milliseconds (0-60000). Click or press any key to skip a screen.
+boot_bios_ms=4000
+boot_loading_ms=3000
+shutdown_ms=3000
+
+# ---- Task Manager ----
+# How often the (dummy) CPU and memory values update, in ms (100-60000)
+taskmgr_refresh_ms=1000

@@ -1,0 +1,33 @@
+{
+    // "Build CSOPESY": runs mingw32-make, which reads the Makefile.
+    // Only changed files are recompiled (the first build takes ~30 s
+    // because it compiles Dear ImGui; later builds take a few seconds).
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "Build CSOPESY",
+            "command": "C:/winlibs/bin/mingw32-make.exe",
+            "args": ["-j4"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "C:\\winlibs\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "type": "process",
+            "label": "Clean CSOPESY",
+            "command": "C:/winlibs/bin/mingw32-make.exe",
+            "args": ["clean"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": { "PATH": "C:\\winlibs\\bin;${env:PATH}" }
+            },
+            "problemMatcher": []
+        }
+    ]
+}

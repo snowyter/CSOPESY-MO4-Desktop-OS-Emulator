@@ -1,0 +1,3 @@
+Put the wallpaper image here as wallpaper.jpg (JPG, PNG or BMP).
+To use another name or folder, change wallpaper_path in config.txt.
+If the file is missing, the desktop shows the gradient instead.

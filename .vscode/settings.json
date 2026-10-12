@@ -1,0 +1,6 @@
+{
+    // Use the WinLibs compiler in VS Code's terminal too.
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\winlibs\\bin;${env:PATH}"
+    }
+}

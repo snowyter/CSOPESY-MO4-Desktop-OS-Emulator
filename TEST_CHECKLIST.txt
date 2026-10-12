@@ -1,0 +1,96 @@
+CSOPESY MO4 - Manual Test Checklist
+===================================
+Run with F5 and compare with the expected result. Mark [x] when it matches.
+Re-run the whole list after every big change.
+
+--- Startup (Steps 1-2) ------------------------------------------------------
+[ ] F5 builds and opens a 1280x720 window titled "CSOPESY Desktop OS Emulator"
+[ ] No assets/wallpaper.jpg -> blue gradient with a dot pattern, and a yellow
+    notice top-left saying the wallpaper couldn't be loaded (fades after ~12 s)
+[ ] With assets/wallpaper.jpg -> the image fills the whole window
+[ ] Clock top-right shows day, date and time, and the SECONDS keep ticking
+[ ] Green "CSOPESY OS v1.0 | System Online" above the taskbar, bottom-left
+[ ] Taskbar along the bottom: "OS" logo on the left, FPS and red PWR on the right
+[ ] Hover PWR -> tooltip "Shut down CSOPESY OS"
+[ ] Click PWR -> pop-up "Are you sure you want to shut down CSOPESY OS?";
+    the rest of the screen is dimmed and can't be clicked
+[ ] Cancel (or Esc) -> pop-up closes, everything keeps running
+[ ] PWR -> Shut Down -> black screen with the CSOPESY banner, "Section S04 -
+    Group 10" and green "Shutting down..." dots, then the window closes by
+    itself; csopesy.log ends with "shut down cleanly"
+
+--- config.txt ---------------------------------------------------------------
+[ ] wallpaper_mode=gradient -> gradient even when wallpaper.jpg exists
+[ ] wallpaper_fit=fit -> whole image visible with black bars at the sides
+[ ] wallpaper_fit=stretch -> image squashed to the window size
+[ ] gradient_top=#000000 and gradient_bottom=#FF0000 -> black-to-red gradient
+[ ] window_width=1024, window_height=600 -> smaller window, everything still fits
+[ ] clock_24h=true -> 14:38:15 instead of 02:38:15 PM
+[ ] font_size=20 -> bigger text everywhere
+[ ] font_size=abc -> warning on screen, default size used, program still runs
+[ ] colour=red -> warning "unknown setting 'colour'"
+[ ] Delete config.txt -> runs with defaults, warning "config.txt not found"
+[ ] boot_enabled=false -> goes straight to the desktop
+[ ] boot_bios_ms=0 -> no BIOS screen, loading screen only
+[ ] boot_loading_ms=10000 -> loading screen stays 10 seconds
+[ ] shutdown_ms=5000 -> shutdown screen stays 5 seconds
+[ ] taskmgr_refresh_ms=200 -> Task Manager numbers change 5x per second
+[ ] taskmgr_refresh_ms=50 -> warning (minimum is 100), default used
+
+--- Boot (Step 6) ------------------------------------------------------------
+[ ] BIOS screen (grey text on black): title, release date, Section S04 -
+    Group 10 with the 3 names, "Checking RAM" counts up to 8388608K then OK,
+    then hardware lines appear one by one (graphics card, OpenGL version,
+    GLFW, Dear ImGui 1.92.5, 1280 x 720)
+[ ] Loading screen: blue CSOPESY banner, "CSOPESY Desktop OS Emulator v1.0",
+    "CSOPESY - Section S04 - Group 10", green "Loading." with moving dots
+[ ] Click / any key on the BIOS screen -> jumps to the loading screen
+[ ] Click / any key on the loading screen -> jumps to the desktop
+[ ] csopesy.log has "Boot complete: desktop running"
+
+--- Taskbar + windows (Step 3) -----------------------------------------------
+[ ] Three icons: folder (File Explorer), page (Notepad), chart (Task Manager)
+[ ] Hover an icon -> tooltip ABOVE the icon with its name
+[ ] Click an icon -> that window opens in front; long cyan bar under the icon
+[ ] Open two apps, click the one behind on the taskbar -> it comes to the front
+[ ] Click the icon of the app in front -> it minimises (short grey bar stays,
+    tooltip says "(minimized)"); click again -> it comes back where it was
+[ ] X on a window -> it closes, the bar under the icon disappears
+[ ] Windows can be dragged and resized; the taskbar always stays on top
+
+--- Task Manager (Step 4) ----------------------------------------------------
+[ ] Three tabs: Applications, Processes, Performance; status bar at the
+    bottom with process count, CPU usage and memory (changes every second)
+[ ] Applications tab lists the open apps with Running / Minimized;
+    select one -> Switch To brings it to the front, End Task closes it
+[ ] Processes tab lists system processes + every OPEN app (File Explorer,
+    Notepad, Task Manager); a minimised app shows "Minimized"
+[ ] Click Image Name / PID / Status / CPU / Mem Usage header -> sorts; click
+    again -> reverse order
+[ ] Select "System" or "CSOPESY Kernel" -> End Process -> "Access denied"
+[ ] Select "Print Spooler" -> End Process -> row disappears, "Ended" message
+[ ] Select "Notepad" -> End Process -> the Notepad window closes
+[ ] Performance tab: green-on-black CPU and memory graphs moving, up time
+    counting
+
+--- File Explorer + Notepad (Step 5) -----------------------------------------
+[ ] Explorer opens at C:\Users\CSOPESY\Documents; title "Documents - File Explorer"
+[ ] Left list (Desktop, Documents, Downloads, Pictures, This PC, C:) works
+[ ] Double-click Projects -> opens it; Back, Forward and Up buttons work
+[ ] Type c:/program files in the address bar + Enter -> goes to C:\Program Files
+[ ] Type a wrong path + Enter (or Go) -> "Can't find" message, stays in place
+[ ] Folders show <DIR> in the Size column
+[ ] Double-click a .png / .docx / .zip -> "Can't open" message
+[ ] Double-click notes.txt -> Notepad opens it; title "notes.txt - Notepad"
+[ ] Type in Notepad -> title gets a * ; Ln / Col / characters update
+[ ] Ctrl+S -> * disappears, "Saved" message; Explorer shows the new
+    Date modified for notes.txt
+[ ] File > New with unsaved changes -> "Do you want to save changes?" with
+    Save / Don't Save / Cancel
+[ ] New document, Ctrl+S -> Save As box; type hello + Enter -> hello.txt appears
+    in Documents
+[ ] Save As with a name like a/b -> red "Invalid name" message
+[ ] Edit > Insert date/time (or F5) inserts the time at the cursor
+[ ] Format > Word wrap off -> long lines scroll sideways instead of wrapping
+[ ] Help > About Notepad shows the version box
+[ ] File > Open... -> File Explorer comes to the front at Documents

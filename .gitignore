@@ -1,0 +1,14 @@
+# Build output (keep the folder itself)
+build/*
+!build/.gitkeep
+*.exe
+csopesy
+csopesy.log
+imgui.ini
+
+# Keep the shared VS Code build/run setup, ignore personal settings
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+!.vscode/settings.json

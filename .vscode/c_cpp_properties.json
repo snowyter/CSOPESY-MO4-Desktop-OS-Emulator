@@ -1,0 +1,20 @@
+{
+    // Tells VS Code's IntelliSense where the headers are (removes red squiggles).
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/external/imgui",
+                "${workspaceFolder}/external/imgui/backends",
+                "${workspaceFolder}/external/glfw/include",
+                "${workspaceFolder}/external/stb"
+            ],
+            "compilerPath": "C:/winlibs/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,21 @@
+{
+    // F5 (Run > Start Debugging): builds, then starts csopesy.exe.
+    // It is a GUI program, so it opens its own window (no console needed).
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run CSOPESY",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/csopesy.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/winlibs/bin/gdb.exe",
+            "preLaunchTask": "Build CSOPESY"
+        }
+    ]
+}
